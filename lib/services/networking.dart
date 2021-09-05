@@ -4,12 +4,13 @@ import 'dart:convert';
    final Uri url;
    NetworkHelper(this.url);
 
-   Future<void> getData  () async {
+   Future getData  () async {
 
      http.Response response = await http.get(url);
      if(response.statusCode==200) {
        String data = response.body;
-       return jsonDecode(data);
+       var decodedData=jsonDecode(data);
+       return decodedData;
 
      }else{
        print(response.statusCode);
